@@ -6,6 +6,10 @@ DocTok: Creating Chatbots for Technical Documentation
 [PPT](https://gamma.app/docs/DocTok-Technical-Documentation-Chatbot-e6btwbtaz9bespi)
 
 
+## Developer Information
+
+- **Name**: Parva J Shah
+- **NUID**: 002916822
 
 ## Overview
 
@@ -76,10 +80,7 @@ The architecture of DocTok includes the following components:
 - **Backend**: Handles document ingestion, preprocessing, and response generation using fine-tuned GPT-4 models.
 - **Database**: Utilizes Pinecone for vector storage, enabling quick retrieval of relevant document sections during conversations.
 
-## Developer Information
 
-- **Name**: Parva J Shah
-- **NUID**: 002916822
 
 ## Future Development
 
