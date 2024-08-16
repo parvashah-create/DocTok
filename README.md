@@ -4,7 +4,9 @@ DocTok: Creating Chatbots for Technical Documentation
 
 ## Links
 [PPT](https://gamma.app/docs/DocTok-Technical-Documentation-Chatbot-e6btwbtaz9bespi)
-
+[APP](https://doctok-chatbot.streamlit.app/)
+[Video]()
+[Report](#/docs/REPORT.md)
 
 ## Developer Information
 
@@ -95,6 +97,3 @@ Future plans for DocTok include:
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
----
-
-Feel free to customize this README further based on any additional features or specific details you want to highlight about the project.

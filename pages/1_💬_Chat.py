@@ -82,7 +82,7 @@ if prompt := st.chat_input(placeholder="Who won the Women's U.S. Open in 2018?")
                                 include_values=False,
                                 include_metadata=True
                             )
-        context_matches =[match['metadata']['text'] for match in contexts['matches']]
+        context_matches =[match['metadata']['content'] for match in contexts['matches']]
         context_str = "\n".join(context_matches)
 
         prompt_template = f"""

@@ -51,25 +51,15 @@ class PineconeManager:
         )
         self.index = self.pc.Index(self.index_name)
 
-    def upsert_dataframe(self, df, text_field='content', batch_size=100):
+    def upsert_dataframe(self, df, text_field='content'):
+        vector_list = []
+        for i, row in df.iterrows():
+            embedding_vector = self.embeddings.embed_query(row[text_field])
 
-        df[text_field].to_csv('dataset/data/vectors.txt', index=False, header=False)
+            vector_list.append({"id": f"{i}", "values": embedding_vector,"metadata": {"content": f"{row[text_field]}"}})
 
-        loader = TextLoader("dataset/data/vectors.txt")
-
-        documents = loader.load()
-
-        text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=2)
-
-        docs = text_splitter.split_documents(documents)
-
-        vectorstore_from_docs = PineconeVectorStore.from_documents(
-                                                            docs,
-                                                            index_name=self.index_name,
-                                                            embedding=self.embeddings
-                                                            ,
-                                                        
-                                                        )
+        res_upsert = self.index.upsert(vectors=vector_list)
+        return res_upsert
 
     def query(self, query_text, top_k=3):
         vectorstore = PineconeVectorStore(
@@ -85,3 +75,7 @@ class PineconeManager:
 
 
 
+# pinecone_manager = PineconeManager(api_key="", openai_key="", index_name='doctok-index')
+# df = pd.read_csv('dataset/data/proccesed.csv')
+# print(df)
+# res = pinecone_manager.upsert_dataframe(df)
