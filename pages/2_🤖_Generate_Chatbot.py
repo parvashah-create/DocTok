@@ -9,8 +9,7 @@ import pandas as pd
 
 load_dotenv()
 
-import streamlit as st
-import os
+
 
 with st.sidebar:
     # Input for OpenAI API Key
@@ -26,15 +25,12 @@ with st.sidebar:
     n_epochs = (st.number_input("Enter the number of epochs to fine-tune", value=1, min_value=1, step=1)) or (os.getenv("EPOCHS_TO_FT"))
 
 
-    
-
-
-
-
     # Links
     "[Get an OpenAI API key](https://platform.openai.com/account/api-keys)"
     "[Get a Pinecone API key](https://app.pinecone.io/)"
     "[![Open GitHub](https://img.shields.io/badge/Open-GitHub-blue?logo=github)](https://github.com/JPsToolbox/Doctok)"
+
+
 
 # Streamlit UI
 st.title("DocTok Chatbot Generator")
@@ -42,9 +38,6 @@ st.title("DocTok Chatbot Generator")
 # Scraping Section
 start_url = st.text_input("Enter the Start URL for Scraping", placeholder="https://langchain-ai.github.io/langgraph")
 st.write("This webscrapper is configured for https://langchain-ai.github.io/langgraph & https://docs.smith.langchain.com")
-
-
-
 
 
 
@@ -57,7 +50,7 @@ if st.button("Generate ChatBot"):
         st.info("Please add your Pinecone API key to continue.")
         st.stop()
 
-    print(type(int(max_depth)))
+
     scraper = WebScraper(start_url, max_depth=int(max_depth))
     scraped_data = scraper.web_scraping_pipeline()
     if not scraped_data.empty:
