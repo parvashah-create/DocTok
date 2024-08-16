@@ -22,7 +22,7 @@ class PineconeManager:
         self._create_index()
 
     def _initialize_pinecone(self):
-        os.environ['PINECONE_API_KEY'] = self.api_key
+    
         
         self.pc = Pinecone(api_key=self.api_key)
         

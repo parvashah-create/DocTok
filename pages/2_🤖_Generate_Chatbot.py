@@ -74,7 +74,7 @@ if st.button("Generate ChatBot"):
             fine_tuned_models = pipeline.fine_tune(n_epochs=n_epochs)
             st.success("Fine Tuning Completed")
             st.write("Fine-tuned model ID: ", fine_tuned_models)
-            # os.environ['FINE_TUNED_MODEL'] = fine_tuned_models.fine_tuned_model
+  
 
         else:
             st.error("Dataset could not be created.")

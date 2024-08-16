@@ -9,8 +9,8 @@ load_dotenv()
 class FineTuningPipeline:
     def __init__(self, api_key):
         # Initialize the OpenAI client
-        self.client = OpenAI()
-        os.environ['OPENAI_API_KEY'] = api_key
+        self.client = OpenAI(api_key=api_key)
+
 
     def upload_training_file(self, jsonl_file_path):
         """Uploads the JSONL file to OpenAI's servers for fine-tuning."""
