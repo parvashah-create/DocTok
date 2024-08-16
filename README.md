@@ -5,7 +5,7 @@ DocTok: Creating Chatbots for Technical Documentation
 ## Links
 [PPT](https://gamma.app/docs/DocTok-Technical-Documentation-Chatbot-e6btwbtaz9bespi)
 [APP](https://doctok-chatbot.streamlit.app/)
-[Video]()
+[Video](https://www.awesomescreenshot.com/video/30579207?key=f43a244bfdede3150df4141d2521bd91)
 [Report](#/docs/REPORT.md)
 
 ## Developer Information
