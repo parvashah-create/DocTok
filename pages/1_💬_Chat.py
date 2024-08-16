@@ -52,10 +52,6 @@ for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
 
 if prompt := st.chat_input(placeholder="Who won the Women's U.S. Open in 2018?"):
-    client = OpenAI(api_key=openai_api_key)
-                        
-    st.session_state.messages.append({"role": "user", "content": f"{prompt}"})
-    st.chat_message("user").write(prompt)
 
     if not openai_api_key:
         st.info("Please add your OpenAI API key to continue.")
@@ -68,6 +64,11 @@ if prompt := st.chat_input(placeholder="Who won the Women's U.S. Open in 2018?")
     if not chatbot_id:
         st.info("Please add your Chatbot ID to continue.")
         st.stop()
+
+    
+    client = OpenAI(api_key=openai_api_key)                    
+    st.session_state.messages.append({"role": "user", "content": f"{prompt}"})
+    st.chat_message("user").write(prompt)
 
     index_name = "doctok-index"
     pc = Pinecone(api_key=pinecone_api_key)
